@@ -1,0 +1,17 @@
+@startuml
+participant Cat as Cat
+actor       Slave       as Slave
+database    CatFood    as Food
+Cat -> Slave: Meow... I am hungry
+Slave -> Food: Get Cat Food!!
+Food -> Food: Check Stock
+
+alt got food
+Food --> Slave: Got it
+Slave --> Cat: Feed
+    
+else no food
+Food --> Slave: Don't have food
+Slave --> Cat: Say to cat. don't have food!!
+end
+@enduml
